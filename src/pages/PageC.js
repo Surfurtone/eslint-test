@@ -6,6 +6,7 @@ import axios from 'axios'
 import CardFlip from '../components/CardFlip'
 
 const PageC = () => {
+  const baseUrl = process.env.REACT_APP_API_URL
   const [error, setError] = useState(null)
   const [characters, setCharacters] = useState([]) // 캐릭터 리스트
   const [character, setCharacter] = useState({}) // 한 명의 캐릭터 정보
@@ -21,7 +22,7 @@ const PageC = () => {
         if (gender === 'female') {
           // 여자 캐릭터 정보 불러오기
           response = await axios.post(
-            'https://6237-220-124-223-3.ngrok-free.app/api/webtoon/female/',
+            `${baseUrl}/api/webtoon/female/`,
 
             {
               headers: {
@@ -34,7 +35,7 @@ const PageC = () => {
         } else if (gender === 'male') {
           // 남자 캐릭터 정보 불러오기
           response = await axios.post(
-            'https://6237-220-124-223-3.ngrok-free.app/api/webtoon/male/',
+            `${baseUrl}/api/webtoon/male/`,
 
             {
               headers: {

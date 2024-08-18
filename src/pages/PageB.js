@@ -4,13 +4,14 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const PageB = () => {
+  const baseUrl = process.env.REACT_APP_API_URL
   const [characters, setCharacters] = useState([]) // 캐릭터 리스트
   const [character, setCharacter] = useState('') // 현재 캐릭터 정보
   const [error, setError] = useState(null)
 
   useEffect(() => {
     axios
-      .post('https://6237-220-124-223-3.ngrok-free.app/api/webtoon/male/', {
+      .post(`${baseUrl}/api/webtoon/male/`, {
         headers: {
           'Content-Type': 'application/json',
           'ngrok-skip-browser-warning': '69420',

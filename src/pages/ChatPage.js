@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from 'react'
 const ChatPage = () => {
   const [characterMessage, setCharacterMessage] = useState('')
 
+  const baseUrl = process.env.REACT_APP_API_URL
+
   const [messages, setMessages] = useState([
     { text: '안녕 이음아, 오늘 하루는 어떻더냐?', isUser: true },
     { text: '안녕하세요 혁원 어르신, 오늘은 참 맑아요', isUser: false },
@@ -22,16 +24,13 @@ const ChatPage = () => {
     try {
       let response
 
-      response = await axios.post(
-        'https://6237-220-124-223-3.ngrok-free.app/api/webtoon/conversation/suho/',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'ngrok-skip-browser-warning': '69420',
-            Accept: 'application/json',
-          },
+      response = await axios.post(`${baseUrl}/api/webtoon/conversation/suho/`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': '69420',
+          Accept: 'application/json',
         },
-      )
+      })
       setCharacterMessage(response.data)
     } catch (error) {
       console.error('Error fetching answer from the server:', error)
