@@ -16,6 +16,7 @@ const PageA = () => {
 
   useEffect(() => {
     // 5초 동안 로딩 화면을 표시한 후 캐릭터 데이터를 불러옴
+    console.log(baseUrl)
     const timer = setTimeout(() => {
       setLoading(false)
       fetchCharacters()
@@ -65,6 +66,7 @@ const PageA = () => {
       }
     } catch (error) {
       console.error('Error fetching data:', error.message)
+      console.log(error.message)
       setError(error.message)
     }
   }
