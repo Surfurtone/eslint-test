@@ -1,13 +1,13 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import pluginReact from 'eslint-plugin-react';
-import airbnbBase from 'eslint-config-airbnb-base';
-import prettier from 'eslint-config-prettier';
-import babelParser from '@babel/eslint-parser';
+import globals from 'globals'
+import pluginJs from '@eslint/js'
+import pluginReact from 'eslint-plugin-react'
+import airbnbBase from 'eslint-config-airbnb-base'
+import prettier from 'eslint-config-prettier'
+import babelParser from '@babel/eslint-parser'
 
 export default [
   {
-    files: ['*/.{js,mjs,cjs,jsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx}'],
     languageOptions: {
       parser: babelParser,
       parserOptions: {
@@ -36,4 +36,4 @@ export default [
       ...prettier.rules, // Prettier 규칙 추가
     },
   },
-];
+]
