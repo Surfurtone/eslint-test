@@ -15,12 +15,12 @@ const PageA = () => {
   const gender = location.state?.gender // 전달된 gender 값
 
   useEffect(() => {
-    // 5초 동안 로딩 화면을 표시한 후 캐릭터 데이터를 불러옴
+    // 0.5초 동안 로딩 화면을 표시한 후 캐릭터 데이터를 불러옴
     console.log(baseUrl)
     const timer = setTimeout(() => {
       setLoading(false)
       fetchCharacters()
-    }, 5000)
+    }, 500)
 
     return () => clearTimeout(timer) // 컴포넌트가 언마운트될 때 타이머를 정리
   }, [gender])
